@@ -1,0 +1,26 @@
+{
+  "name": "nodebb-plugin-registration-question",
+  "version": "0.0.1",
+  "description": "Question and Answer plugin for the NodeBB registration form",
+  "main": "library.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psychobunny/nodebb-plugin-registration-question"
+  },
+  "keywords": [
+    "nodebb",
+    "plugin",
+    "registration",
+    "spam",
+    "question"
+  ],
+  "author": {
+    "name": "psychobunny",
+    "email": "psycho.bunny@hotmail.com"
+  },
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/psychobunny/nodebb-plugin-registration-question/issues"
+  },
+  "readmeFilename": "README.md"
+}
