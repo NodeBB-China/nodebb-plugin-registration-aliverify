@@ -18,6 +18,9 @@
         		"hook": "filter:register.check", "method": "checkRegister"
         	}
 	],
+	"nbbpm": {
+		"compatibility": "^0.6.0"
+	},
 	"staticDirs": {
 		"static": "./static"
 	},

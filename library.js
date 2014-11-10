@@ -4,6 +4,10 @@ var plugin = {},
 	meta = module.parent.require('./meta');
 
 plugin.init = function(app, middleware, controllers, callback) {
+	var app = params.app,
+		middleware = params.middleware,
+		controllers = params.controllers;
+		
 	app.get('/admin/registration-question', middleware.admin.buildHeader, renderAdmin);
 	app.get('/api/admin/registration-question', renderAdmin);
 
