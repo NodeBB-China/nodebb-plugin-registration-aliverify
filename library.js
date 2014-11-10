@@ -3,7 +3,7 @@
 var plugin = {},
 	meta = module.parent.require('./meta');
 
-plugin.init = function(app, middleware, controllers, callback) {
+plugin.init = function(params, callback) {
 	var app = params.app,
 		middleware = params.middleware,
 		controllers = params.controllers;
