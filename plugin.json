@@ -1,7 +1,7 @@
 {
 	"id": "nodebb-plugin-registration-question",
-	"name": "Quickstart Plugin for NodeBB",
-	"description": "A starter kit for quickly creating NodeBB plugins",
+	"name": "Registration Question",
+	"description": "Question and Answer plugin for the registration form",
 	"url": "https://github.com/NodeBB/nodebb-plugin-registration-question",
 	"library": "./library.js",
 	"hooks": [
