@@ -24,7 +24,7 @@ plugin.addAdminNavigation = function(header, callback) {
 	callback(null, header);
 };
 
-plugin.addCaptcha = function(req, res, templateData, callback) {
+plugin.addCaptcha = function(params, callback) {
 	var question = meta.config['registration-question:question'];
 
 	var captcha = {
@@ -32,22 +32,22 @@ plugin.addCaptcha = function(req, res, templateData, callback) {
 		html: '<div class="well"><strong>' + question + '</strong><br /><input class="form-control" name="registration-question" id="registration-question" /></div>'
 	};
 
-	if (templateData.regFormEntry && Array.isArray(templateData.regFormEntry)) {
-		templateData.regFormEntry.push(captcha);
+	if (params.templateData.regFormEntry && Array.isArray(params.templateData.regFormEntry)) {
+		params.templateData.regFormEntry.push(captcha);
 	} else {
-		templateData.captcha = captcha;
+		params.templateData.captcha = captcha;
 	}
 
-	callback(null, req, res, templateData);
+	callback(null, params);
 };
 
-plugin.checkRegister = function(req, res, userData, callback) {
+plugin.checkRegister = function(params, callback) {
 	var answer = meta.config['registration-question:answer'];
 
-	if (answer !== req.body['registration-question']) {
-		callback({source: 'registration-question', message: 'wrong-answer'}, req, res, userData);
+	if (answer !== params.req.body['registration-question']) {
+		callback({source: 'registration-question', message: 'wrong-answer'}, params);
 	} else {
-		callback(null, req, res, userData);
+		callback(null, params);
 	}
 };
 

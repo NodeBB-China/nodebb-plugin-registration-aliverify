@@ -14,9 +14,9 @@
 		{
 			"hook": "filter:register.build", "method": "addCaptcha"
 		},
-        	{
-        		"hook": "filter:register.check", "method": "checkRegister"
-        	}
+		{
+			"hook": "filter:register.check", "method": "checkRegister"
+		}
 	],
 	"staticDirs": {
 		"static": "./static"
