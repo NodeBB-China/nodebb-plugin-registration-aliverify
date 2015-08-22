@@ -23,7 +23,7 @@
     "url": "https://github.com/psychobunny/nodebb-plugin-registration-question/issues"
   },
   "nbbpm": {
-    "compatibility": "^0.6.0"
+    "compatibility": "^0.6.0 || ^0.7.0"
   },
   "readmeFilename": "README.md"
 }
