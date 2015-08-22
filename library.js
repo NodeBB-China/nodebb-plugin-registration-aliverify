@@ -18,7 +18,7 @@ plugin.addAdminNavigation = function(header, callback) {
 	header.plugins.push({
 		route: '/registration-question',
 		icon: 'fa-tint',
-		name: 'registration-question'
+		name: 'Registration Question'
 	});
 
 	callback(null, header);
