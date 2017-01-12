@@ -5,7 +5,7 @@
 	<p>
 		Enter a registration question for the user to answer.
 	</p><br />
-	<div class="alert alert-info">
+	<div>
 		<p>
 			<label for="Question">Question</label>
 			<input type="text" data-field="registration-question:question" title="Question" class="form-control" placeholder="Question"><br />
