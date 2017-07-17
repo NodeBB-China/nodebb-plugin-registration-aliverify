@@ -1,26 +1,26 @@
 {
-  "name": "nodebb-plugin-registration-question",
+  "name": "nodebb-plugin-registration-aliverify",
   "version": "0.1.9",
-  "description": "Question and Answer plugin for the NodeBB registration form",
+  "description": "在注册时允许你使用阿里验证码进行验证。Registration via alibaba verify service.",
   "main": "library.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/psychobunny/nodebb-plugin-registration-question"
+    "url": "https://github.com/NodeBB-China/nodebb-plugin-registration-aliverify"
   },
   "keywords": [
     "nodebb",
     "plugin",
     "registration",
-    "spam",
-    "question"
+    "spam"
+    
   ],
   "author": {
-    "name": "psychobunny",
-    "email": "psycho.bunny@hotmail.com"
+    "name": "a632079",
+    "email": "a632079@qq.com"
   },
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/psychobunny/nodebb-plugin-registration-question/issues"
+    "url": "https://github.com/NodeBB-China/nodebb-plugin-registration-aliverify/issues"
   },
   "nbbpm": {
     "compatibility": "^0.7.0 || ^0.8.0"
