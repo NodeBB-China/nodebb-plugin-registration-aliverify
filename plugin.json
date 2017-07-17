@@ -1,8 +1,8 @@
 {
-	"id": "nodebb-plugin-registration-question",
-	"name": "Registration Question",
-	"description": "Question and Answer plugin for the registration form",
-	"url": "https://github.com/NodeBB/nodebb-plugin-registration-question",
+	"id": "nodebb-plugin-registration-aliverify",
+	"name": "Registration Ali-verfiy",
+	"description": "在注册时允许你使用阿里验证码进行验证。Registration via alibaba verify service.",
+	"url": "https://github.com/NodeBB-China/nodebb-plugin-registration-aliverify",
 	"library": "./library.js",
 	"hooks": [
 		{

@@ -26,7 +26,7 @@ plugin.addAdminNavigation = function(header, callback) {
 
 plugin.addCaptcha = function(params, callback) {
 	var question = meta.config['registration-question:question'];
-
+	console.log(params);
 	var captcha = {
 		label: 'Registration Question',
 		html: '<div class="well"><strong>' + question + '</strong><br /><input class="form-control" name="registration-question" id="registration-question" /></div>'
@@ -42,6 +42,7 @@ plugin.addCaptcha = function(params, callback) {
 };
 
 plugin.checkRegister = function(params, callback) {
+	console.log(params);
 	var answer = meta.config['registration-question:answer'];
 
 	if (answer.toLowerCase() !== params.req.body['registration-question'].toLowerCase()) {
