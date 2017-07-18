@@ -1,17 +1,13 @@
 "use strict";
 
 var plugin = {},
-	meta = module.parent.require('./meta');
+	meta = module.parent.require('./meta'),
+	nconf = module.parent.require('nconf'),;
 
-plugin.init = function(params, callback) {
-	var app = params.router,
-		middleware = params.middleware,
-		controllers = params.controllers;
-		
-	app.get('/admin/registration-question', middleware.admin.buildHeader, renderAdmin);
-	app.get('/api/admin/registration-question', renderAdmin);
-
-	callback();
+plugin.init = (data, callback) => {
+        data.router.get('/admin/plugins/registration-aliverity', data.middleware.admin.buildHeader, renderAdmin);
+        data.router.get('/api/admin/plugins/registration-aliverity', renderAdmin);
+        callback();
 };
 
 plugin.addAdminNavigation = function(header, callback) {
@@ -53,7 +49,7 @@ plugin.checkRegister = function(params, callback) {
 };
 
 function renderAdmin(req, res, next) {
-	res.render('admin/registration-question', {});
+	res.render('admin/registration-aliverity', {});
 }
 
 module.exports = plugin;
