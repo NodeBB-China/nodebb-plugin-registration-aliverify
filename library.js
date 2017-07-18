@@ -5,12 +5,14 @@ let plugin = {},
 	//nconf = module.parent.require('nconf'),;
 
 plugin.init = (data, callback) => {
+		console.log(`[Ali_V] initing...`);
         data.router.get('/admin/plugins/registration-aliverify', data.middleware.admin.buildHeader, renderAdmin);
         data.router.get('/api/admin/plugins/registration-aliverify', renderAdmin);
         callback();
 };
 
 plugin.addAdminNavigation = (header, callback) => {
+	console.log(`[Ali_V] addAdminNavigation...`);
 	header.plugins.push({
 		route: '/registration-aliverify',
 		icon: 'fa-tint',
