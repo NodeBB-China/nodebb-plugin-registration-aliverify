@@ -6,26 +6,35 @@
 	"library": "./library.js",
 	"hooks": [
 		{
-			"hook": "static:app.load", "method": "init"
+			"hook": "static:app.load",
+			"method": "init"
 		},
 		{
-			"hook": "filter:admin.header.build", "method": "addAdminNavigation"
+			"hook": "filter:admin.header.build",
+			"method": "addAdminNavigation"
 		},
 		{
-			"hook": "filter:register.build", "method": "addCaptcha"
+			"hook": "filter:register.build",
+			"method": "addverify"
 		},
 		{
-			"hook": "filter:register.check", "method": "checkRegister"
+			"hook": "filter:register.check",
+			"method": "verify"
+		},
+		{
+			"hook": "filter:filter:meta.getLinkTags",
+			"method": "addhead"
+		},
+		{
+			"hook": "filter:header.build",
+			"method": "addheader"
 		}
 	],
 	"staticDirs": {
 		"static": "./static"
 	},
-	"less": [
-		"static/style.less"
-	],
-	"scripts": [
-		"static/lib/main.js"
-	],
-	"templates": "static/templates"
+	"templates": "./static/templates",
+	"acpScripts": [
+		"./static/lib/admin.js"
+	]
 }
