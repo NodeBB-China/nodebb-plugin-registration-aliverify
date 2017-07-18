@@ -1,20 +1,20 @@
 "use strict";
-
-var plugin = {},
-	meta = module.parent.require('./meta'),
-	nconf = module.parent.require('nconf'),;
+//ES6 enabled
+let plugin = {},
+	meta = module.parent.require('./meta');
+	//nconf = module.parent.require('nconf'),;
 
 plugin.init = (data, callback) => {
-        data.router.get('/admin/plugins/registration-aliverity', data.middleware.admin.buildHeader, renderAdmin);
-        data.router.get('/api/admin/plugins/registration-aliverity', renderAdmin);
+        data.router.get('/admin/plugins/registration-aliverify', data.middleware.admin.buildHeader, renderAdmin);
+        data.router.get('/api/admin/plugins/registration-aliverify', renderAdmin);
         callback();
 };
 
-plugin.addAdminNavigation = function(header, callback) {
+plugin.addAdminNavigation = (header, callback) => {
 	header.plugins.push({
-		route: '/registration-question',
+		route: '/registration-aliverify',
 		icon: 'fa-tint',
-		name: 'Registration Question'
+		name: 'Alibaba Verify'
 	});
 
 	callback(null, header);
@@ -49,7 +49,7 @@ plugin.checkRegister = function(params, callback) {
 };
 
 function renderAdmin(req, res, next) {
-	res.render('admin/registration-aliverity', {});
+	res.render('admin/registration-aliverify', {});
 }
 
 module.exports = plugin;
