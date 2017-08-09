@@ -20,20 +20,13 @@
 		{
 			"hook": "filter:register.check",
 			"method": "verify"
-		},
-		{
-			"hook": "filter:filter:meta.getLinkTags",
-			"method": "addhead"
-		},
-		{
-			"hook": "filter:header.build",
-			"method": "addheader"
 		}
 	],
 	"staticDirs": {
 		"static": "./static"
 	},
 	"templates": "./static/templates",
+	"scripts":["./static/lib/core.js"],
 	"acpScripts": [
 		"./static/lib/admin.js"
 	]
