@@ -15,19 +15,29 @@
 		},
 		{
 			"hook": "filter:register.build",
-			"method": "addverify"
+			"method": "regcaptcha"
 		},
 		{
 			"hook": "filter:register.check",
-			"method": "verify"
+			"method": "regcheck"
+		},
+		{
+			"hook": "filter:login.build",
+			"method": "logcaptcha"
+		},
+		{
+			"hook": "filter:login.check",
+			"method": "logcheck"
 		}
 	],
 	"staticDirs": {
 		"static": "./static"
 	},
-	"templates": "./static/templates",
-	"scripts":["./static/lib/core.js"],
+	"templates": "static/templates",
+	"scripts": [
+		"static/lib/core.js"
+	],
 	"acpScripts": [
-		"./static/lib/admin.js"
+		"static/lib/admin.js"
 	]
 }

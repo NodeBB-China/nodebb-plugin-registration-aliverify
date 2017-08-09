@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-registration-aliverify",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "description": "在注册时允许你使用阿里验证码进行验证。Registration via alibaba verify service.",
   "main": "./library.js",
   "repository": {
@@ -12,7 +12,6 @@
     "plugin",
     "registration",
     "spam"
-    
   ],
   "author": {
     "name": "a632079",
@@ -20,7 +19,7 @@
   },
   "license": "BSD-2-Clause",
   "dependencies": {
-    "aliyun-sdk":"*"
+    "aliyun-sdk":""
   },
   "bugs": {
     "url": "https://github.com/NodeBB-China/nodebb-plugin-registration-aliverify/issues"
