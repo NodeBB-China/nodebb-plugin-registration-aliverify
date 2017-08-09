@@ -1,5 +1,6 @@
 "use strict";
 const meta = module.parent.require('./meta');
+const ali_login = !process.env.ali_login || true;
 let core = {}, ALY = require("aliyun-sdk"), app_key, app_secret;
 meta.settings.get('aliverify', function (err, settings) {
 	if (!err && settings['key'] && settings['secret']) {
@@ -47,9 +48,8 @@ core.regcaptcha = (data, callback) => {
 		"label": "验证码",
 		"html": '<div class="well"><div id="nc_captcha"></div></div>'
 	};
-	let ali_key = app_key;
 	let nc_captcha = {
-		"html": "<p id='nc_appkey' class='hidden'>" + ali_key + "</p><input type='hidden' id='csessionid' name='csessionid'/><input type='hidden' id='sig' name='sig'/><input type='hidden' id='token' name='token'/><input type='hidden' id='scene' name='scene'/>"
+		"html": "<input type='hidden' id='csessionid' name='csessionid'/><input type='hidden' id='sig' name='sig'/><input type='hidden' id='token' name='token'/><input type='hidden' id='scene' name='scene'/>"
 	};
 
 
@@ -101,7 +101,7 @@ core.regcheck = (data, callback) => {
 core.logcaptcha = (data, callback) => {
 	console.log("hook filter:login.build");
 	//console.log(data);
-	if (!process.env.ali_login) {
+	if (!ali_login) {
 		callback(null, data);
 	}
 	if (!app_key || !app_secret) {
@@ -111,9 +111,8 @@ core.logcaptcha = (data, callback) => {
 		"label": "验证码",
 		"html": '<div class="well"><div id="nc_captcha"></div></div>'
 	};
-	let ali_key = app_key;
 	let nc_captcha = {
-		"html": "<p id='nc_appkey' class='hidden'>" + ali_key + "</p><input type='hidden' id='csessionid' name='csessionid'/><input type='hidden' id='sig' name='sig'/><input type='hidden' id='token' name='token'/><input type='hidden' id='scene' name='scene'/>"
+		"html": "<input type='hidden' id='csessionid' name='csessionid'/><input type='hidden' id='sig' name='sig'/><input type='hidden' id='token' name='token'/><input type='hidden' id='scene' name='scene'/>"
 	};
 
 
@@ -129,7 +128,7 @@ core.logcaptcha = (data, callback) => {
 //hook filter:login.check
 core.logcheck = (data, callback) => {
 	console.log("hook filter:login.check");
-	if (!process.env.ali_login) {
+	if (!ali_login) {
 		callback(null, data);
 	}
 	if (!app_key || !app_secret) {

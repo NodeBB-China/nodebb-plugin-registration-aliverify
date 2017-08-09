@@ -1,7 +1,8 @@
 $(document).ready(function () {
     var nc = new noCaptcha();
-    var nc_appkey = $('#nc_appkey').text();
-    var nc_scene = 'login'; var nc_token = [nc_appkey, (new Date()).getTime(), Math.random()].join(':');
+    var nc_appkey = 'FFFF00000000017697D9';
+    var nc_scene = 'login'; 
+    var nc_token = [nc_appkey, (new Date()).getTime(), Math.random()].join(':');
     var nc_option = {
         renderTo: '#nc_captcha', appkey: nc_appkey, scene: nc_scene, token: nc_token, callback: function (data) {
             console.log(data.csessionid);
