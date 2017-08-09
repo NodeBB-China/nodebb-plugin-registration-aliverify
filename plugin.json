@@ -20,14 +20,6 @@
 		{
 			"hook": "filter:register.check",
 			"method": "regcheck"
-		},
-		{
-			"hook": "filter:login.build",
-			"method": "logcaptcha"
-		},
-		{
-			"hook": "filter:login.check",
-			"method": "logcheck"
 		}
 	],
 	"staticDirs": {

@@ -1,6 +1,5 @@
 "use strict";
 const meta = module.parent.require('./meta');
-const ali_login = !process.env.ali_login || true;
 let core = {}, ALY = require("aliyun-sdk"), app_key, app_secret;
 meta.settings.get('aliverify', function (err, settings) {
 	if (!err && settings['key'] && settings['secret']) {
@@ -20,11 +19,6 @@ core.init = (data, callback) => {
 		res.charset = 'utf-8';
 		res.sendfile("./node_modules/nodebb-plugin-registration-aliverify/static/lib/register.js");
 	});
-	data.router.get('/aliverify/js/login', (req, res, next) => {
-		res.set('Content-Type', 'application/x-javascript');
-		res.charset = 'utf-8';
-		res.sendfile("./node_modules/nodebb-plugin-registration-aliverify/static/lib/login.js");
-	})
 	callback();
 };
 //hook filter:admin.header.build
@@ -39,7 +33,7 @@ core.addAdminNavigation = (custom_header, callback) => {
 };
 //hook filter:register.build
 core.regcaptcha = (data, callback) => {
-	console.log("hook filter:register.build");
+	//console.log("hook filter:register.build");
 	//console.log(data);
 	if (!app_key || !app_secret) {
 		callback(null, data);
@@ -49,7 +43,7 @@ core.regcaptcha = (data, callback) => {
 		"html": '<div class="well"><div id="nc_captcha"></div></div>'
 	};
 	let nc_captcha = {
-		"html": "<input type='hidden' id='csessionid' name='csessionid'/><input type='hidden' id='sig' name='sig'/><input type='hidden' id='token' name='token'/><input type='hidden' id='scene' name='scene'/>"
+		"html": "<input type='hidden' id='csessionid' name='csessionid'/><input type='hidden' id='sig' name='sig'/><input type='hidden' id='token' name='alitoken'/><input type='hidden' id='scene' name='scene'/>"
 	};
 
 
@@ -64,11 +58,11 @@ core.regcaptcha = (data, callback) => {
 };
 //hook filter:register.check
 core.regcheck = (data, callback) => {
-	console.log("hook filter:register.check");
+	//console.log("hook filter:register.check");
 	if (!app_key || !app_secret) {
 		callback(null, data);
 	}
-	console.log(data);
+	//console.log(data);
 	let jaq = new ALY.JAQ({
 		accessKeyId: app_key,
 		secretAccessKey: app_secret,
@@ -81,7 +75,7 @@ core.regcheck = (data, callback) => {
 		Platform: 3,//必填参数，请求来源： 1：Android端； 2：iOS端； 3：PC端及其他
 		Session: data.req.body['csessionid'],// 必填参数，从前端获取，不可更改
 		Sig: data.req.body['sig'],// 必填参数，从前端获取，不可更改
-		Token: data.req.body['token'],// 必填参数，从前端获取，不可更改
+		Token: data.req.body['alitoken'],// 必填参数，从前端获取，不可更改
 		Scene: "register"// 必填参数，从前端获取，不可更改
 
 	}, function (err, d) {
@@ -97,72 +91,4 @@ core.regcheck = (data, callback) => {
 
 	callback(null, data);
 };
-//hook filter:login.build
-core.logcaptcha = (data, callback) => {
-	console.log("hook filter:login.build");
-	//console.log(data);
-	if (!ali_login) {
-		callback(null, data);
-	}
-	if (!app_key || !app_secret) {
-		callback(null, data);
-	}
-	let ret = {
-		"label": "验证码",
-		"html": '<div class="well"><div id="nc_captcha"></div></div>'
-	};
-	let nc_captcha = {
-		"html": "<input type='hidden' id='csessionid' name='csessionid'/><input type='hidden' id='sig' name='sig'/><input type='hidden' id='token' name='token'/><input type='hidden' id='scene' name='scene'/>"
-	};
-
-
-	if (data.templateData.regFormEntry && Array.isArray(data.templateData.regFormEntry)) {
-		data.templateData.regFormEntry.push(ret);
-		data.templateData.regFormEntry.push(nc_captcha);
-	} else {
-		data.templateData.captcha = ret;
-		data.templateData.nc_captcha = nc_captcha;
-	}
-	callback(null, data);
-};
-//hook filter:login.check
-core.logcheck = (data, callback) => {
-	console.log("hook filter:login.check");
-	if (!ali_login) {
-		callback(null, data);
-	}
-	if (!app_key || !app_secret) {
-		callback(null, data);
-	}
-	console.log(data);
-	let jaq = new ALY.JAQ({
-		accessKeyId: app_key,
-		secretAccessKey: app_secret,
-		endpoint: 'http://jaq.aliyuncs.com',
-		apiVersion: '2016-11-23',
-	});
-
-	jaq.afsCheck({
-
-		Platform: 3,//必填参数，请求来源： 1：Android端； 2：iOS端； 3：PC端及其他
-		Session: data.req.body['csessionid'],// 必填参数，从前端获取，不可更改
-		Sig: data.req.body['sig'],// 必填参数，从前端获取，不可更改
-		Token: data.req.body['token'],// 必填参数，从前端获取，不可更改
-		Scene: "login"// 必填参数，从前端获取，不可更改
-
-	}, function (err, d) {
-		if (err) {
-			//异常
-			console.log('error:', err);
-			callback(err, data)
-			return;
-		}
-		//此处无异常，但也可能调用失败
-		console.log('result:', JSON.stringify(d));
-	});
-
-	callback(null, data);
-};
-
-
 module.exports = core;
