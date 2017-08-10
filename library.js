@@ -71,13 +71,11 @@ core.regcheck = (data, callback) => {
 	});
 
 	jaq.afsCheck({
-
 		Platform: 3,//必填参数，请求来源： 1：Android端； 2：iOS端； 3：PC端及其他
 		Session: data.req.body['csessionid'],// 必填参数，从前端获取，不可更改
 		Sig: data.req.body['sig'],// 必填参数，从前端获取，不可更改
 		Token: data.req.body['alitoken'],// 必填参数，从前端获取，不可更改
 		Scene: "register"// 必填参数，从前端获取，不可更改
-
 	}, function (err, d) {
 		if (err) {
 			//异常
@@ -87,8 +85,11 @@ core.regcheck = (data, callback) => {
 		}
 		//此处无异常，但也可能调用失败
 		console.log('result:', JSON.stringify(d));
+		if(d.hasOwnProperty("Data") && d.Data && d.ErrorCode == 0){
+			callback(null, data);	
+		}else{
+			callback({ source: '阿里云验证', message: '验证失败，错误代码:'+d.ErrorCode }, data)
+		}
 	});
-
-	callback(null, data);
 };
 module.exports = core;
