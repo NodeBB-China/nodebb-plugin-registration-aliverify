@@ -10,6 +10,7 @@ $(document).ready(function () {
             document.getElementById('scene').value = nc_scene;
             $('.nc-container .nc_scale span').css({width:'48px'});
             $('#nc_1_n1z').css({left: ( $('#nc_captcha').width() - 48).toString() + 'px'});
+            $('#nc_1__bg').css({width: ( $('#nc_captcha').width() - 48).toString() + 'px'});
         }
     };
     nc.init(nc_option);
