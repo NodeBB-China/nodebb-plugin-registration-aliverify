@@ -1,7 +1,7 @@
 {
   "name": "nodebb-plugin-registration-aliverify",
   "version": "0.3.7",
-  "description": "在注册时允许你使用阿里云滑动验证进行验证。Registration via alibaba verify service.",
+  "description": "在注册时允许你使用阿里云滑动验证服务来检验请求。Registration via alibaba verify service.",
   "main": "./library.js",
   "repository": {
     "type": "git",

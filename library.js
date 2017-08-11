@@ -33,8 +33,6 @@ core.addAdminNavigation = (custom_header, callback) => {
 };
 //hook filter:register.build
 core.regcaptcha = (data, callback) => {
-	//console.log("hook filter:register.build");
-	//console.log(data);
 	if (!app_key || !app_secret) {
 		callback(null, data);
 	}
