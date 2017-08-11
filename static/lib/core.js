@@ -4,8 +4,6 @@ $(document).ready(function () {
     $(window).on('action:ajaxify.end', function (event, data) {
         if (data.url == "register") {
             $("head").append('<link type="text/css" href="//g.alicdn.com/sd/ncpc/nc.css?t=1502432138961" rel="stylesheet"/>');
-            //Add style
-            $("head").append('<style>.nc-container .nc_scale span{height: 100% !important;} .nc-container .nc_wrapper{ width:auto !important;}</style>');
             //Add Check Body
             $("body").prepend('<div id="_umfp" style="display:inline;width:1px;height:1px;overflow:hidden"></div>');
             var ct = Date.now();
