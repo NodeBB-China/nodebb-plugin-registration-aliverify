@@ -1,7 +1,7 @@
 {
 	"id": "nodebb-plugin-registration-aliverify",
 	"name": "Registration Ali-verfiy",
-	"description": "在注册时允许你使用阿里验证码进行验证。Registration via alibaba verify service.",
+	"description": "在注册时允许你使用阿里云滑动验证进行验证。Registration via alibaba verify service.",
 	"url": "https://github.com/NodeBB-China/nodebb-plugin-registration-aliverify",
 	"library": "./library.js",
 	"hooks": [
@@ -26,6 +26,9 @@
 		"static": "./static"
 	},
 	"templates": "static/templates",
+        "less": [
+		"static/less/core.css"
+	],
 	"scripts": [
 		"static/lib/core.js"
 	],
