@@ -8,8 +8,8 @@ $(document).ready(function () {
             document.getElementById('sig').value = data.sig;
             document.getElementById('token').value = nc_token;
             document.getElementById('scene').value = nc_scene;
-            $('#nc_1__bg').css({width:'320px'});
-            $('#nc_1_n1z').css({left:'320px'});
+            $('.nc-container .nc_scale span').css({width:'48px'});
+            $('#nc_1_n1z').css({left: ( $('#nc_captcha').width() - 48).toString() + 'px'});
         }
     };
     nc.init(nc_option);
