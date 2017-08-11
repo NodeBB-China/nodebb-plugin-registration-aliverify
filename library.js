@@ -40,7 +40,7 @@ core.regcaptcha = (data, callback) => {
 	}
 	let ret = {
 		"label": "验证码",
-		"html": '<div style="margin-top:4px;"><div id="nc_captcha"></div></div>'
+		"html": '<div id="nc_captcha"></div>'
 	};
 	let nc_captcha = {
 		"html": "<input type='hidden' id='csessionid' name='csessionid'/><input type='hidden' id='sig' name='sig'/><input type='hidden' id='token' name='alitoken'/><input type='hidden' id='scene' name='scene'/>"

@@ -1,3 +1,29 @@
 .nc-container .nc_scale span{
     height:100% !important;
 }
+.nc-container .nc_scale .clickCaptcha {
+    top: 41px !important;
+}
+.nc-container .nc_scale .btn_warn {
+    line-height: 42px !important;
+}
+.nc_scale {
+    height: 42px !important;
+}
+
+.nc-container .nc_scale span {
+    height: 42px !important;
+    line-height: 42px !important;
+}
+.nc-container .nc_scale .btn_ok {
+    line-height: 42px !important;
+}
+.nc-container .nc_scale .scale_text {
+    line-height: 42px !important;
+}
+.nc-container .nc_scale .btn_slide {
+    width: 44px !important;
+}
+.nc-container #nc_1_wrapper, .nc-container.tb-login #nc_1_wrapper {
+    width: 100% !important;
+}
