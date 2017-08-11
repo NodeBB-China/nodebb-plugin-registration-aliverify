@@ -12,7 +12,7 @@ $(document).ready(function () {
             $.getScript("//g.alicdn.com/sd/ncpc/nc.js?t=1502432138961", function () {
                 var cts = Date.now() - ct;
                 console.log("阿里云滑动验证: nc.js loaded. 耗时:" + cts + "ms");
-                ctaaa = Date.now();
+                ct = Date.now();
                 console.log("阿里云滑动验证: ali.js  Start loading");
                 $.getScript("./aliverify/js/register", function (err) {
                     cts = Date.now() - ct;
