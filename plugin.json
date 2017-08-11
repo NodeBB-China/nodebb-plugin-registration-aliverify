@@ -27,7 +27,7 @@
 	},
 	"templates": "static/templates",
         "less": [
-		"static/less/core.css"
+		"static/less/core.less"
 	],
 	"scripts": [
 		"static/lib/core.js"
