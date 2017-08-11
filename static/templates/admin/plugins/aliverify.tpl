@@ -2,7 +2,6 @@
 	<div class="col-sm-2 col-xs-12 settings-header">阿里云滑动验证</div>
 	<div class="col-sm-10 col-xs-12">
 		<div class="alert alert-info" style="background-color:#66CCCC">
-				<p class="help-block" style="color:#fff"><b>本版本为测试版本，并不是十分建议使用！默认请用了登录验证，如果不需要请在Shell下执行 export ali_login = false 。</b></p>
 				<p class="help-block" style="color:#fff">
 					 如果使用碰到问题（崩溃、注册时出现错误），请到 <a href="https://github.com/NodeBB-China/nodebb-plugin-registration-aliverify/issues">issue</a> 中反馈!
 				</p>
