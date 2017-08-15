@@ -23,7 +23,7 @@
 			</div>
 			<div class="form-group">
 				<label for="secret">Access Key Secret</label>
-				<input type="text" name="appkey" title="ACCESS_SECRET" class="form-control" placeholder="请输入您在 “应用代码集成” 中的 appkey ..." />
+				<input type="text" name="appkey" title="APPKEY" class="form-control" placeholder="请输入您在 “应用代码集成” 中的 appkey ..." />
 			</div>
 			
 		</form>
