@@ -1,10 +1,11 @@
 "use strict";
 const meta = module.parent.require('./meta');
-let core = {}, ALY = require("aliyun-sdk"), app_key, app_secret;
+let core = {}, ALY = require("aliyun-sdk"), app_key, app_secret,app_id;
 meta.settings.get('aliverify', function (err, settings) {
 	if (!err && settings['key'] && settings['secret']) {
 		app_key = settings['key'];
 		app_secret = settings['secret'];
+		app_id = settings['appkey'];
 	}
 });
 //hook static:app.load
@@ -42,7 +43,7 @@ core.regcaptcha = (data, callback) => {
 		"html": '<div id="nc_captcha"></div>'
 	};
 	let nc_captcha = {
-		"html": "<input type='hidden' id='csessionid' name='csessionid'/><input type='hidden' id='sig' name='sig'/><input type='hidden' id='token' name='alitoken'/><input type='hidden' id='scene' name='scene'/>"
+		"html": "<input type='hidden' id='csessionid' name='csessionid'/><input type='hidden' id='sig' name='sig'/><input type='hidden' id='token' name='alitoken'/><input type='hidden' id='scene' name='scene'/><p class='hidden' id='ali_appkey'>"+app_id+"</p>"
 	};
 
 

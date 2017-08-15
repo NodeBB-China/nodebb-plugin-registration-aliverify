@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var nc = new noCaptcha();
-    var nc_appkey = 'FFFF00000000016A37ED';
+    var nc_appkey = $('#ali_appkey').text();
     var nc_scene = 'register';
     var nc_token = [nc_appkey, (new Date()).getTime(), Math.random()].join(':');
     var nc_option = {
