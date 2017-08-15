@@ -13,12 +13,12 @@ $(document).ready(function () {
             console.log("阿里云滑动验证: nc.js  Start loading");
             $.getScript("//g.alicdn.com/sd/ncpc/nc.js?t=1502432138961", function () {
                 var cts = Date.now() - ct;
-                console.log("阿里云滑动验证: nc.js loaded. 耗时:" + cts + "ms");
+                console.log("阿里云滑动验证: nc.js  loaded. 耗时:" + cts + "ms");
                 ct = Date.now();
                 console.log("阿里云滑动验证: ali.js  Start loading");
                 $.getScript("./aliverify/js/register", function (err) {
                     cts = Date.now() - ct;
-                    console.log("阿里云滑动验证: ali.js loaded. 耗时:" + cts + "ms");
+                    console.log("阿里云滑动验证: ali.js  loaded. 耗时:" + cts + "ms");
                 });
             });
         }
