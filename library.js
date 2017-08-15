@@ -17,8 +17,9 @@ core.init = (data, callback) => {
 	data.router.get('/aliverify/js/register', (req, res, next) => {
 		res.set('Content-Type', 'application/x-javascript');
 		res.charset = 'utf-8';
-		res.sendFile("./node_modules/nodebb-plugin-registration-aliverify/static/lib/register.js");
+		res.sendFile(__dirname + "/static/lib/register.js");
 	});
+	
 	callback();
 };
 //hook filter:admin.header.build
