@@ -2,6 +2,8 @@
 //Check Windows Url
 $(document).ready(function () {
     $(window).on('action:ajaxify.end', function (event, data) {
+        console.log(data);
+        console.log(event);
         if (data.url == "register") {
             $("head").append('<link type="text/css" href="//g.alicdn.com/sd/ncpc/nc.css?t=1502432138961" rel="stylesheet"/>');
             //Add Check Body
