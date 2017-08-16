@@ -2,7 +2,7 @@
 const meta = module.parent.require('./meta');
 let core = {}, ALY = require("aliyun-sdk"), app_key, app_secret,app_id;
 meta.settings.get('aliverify', function (err, settings) {
-	if (!err && settings['key'] && settings['secret']) {
+	if (!err && settings['key'] && settings['secret'] && settings['appkey']) {
 		app_key = settings['key'];
 		app_secret = settings['secret'];
 		app_id = settings['appkey'];
@@ -37,6 +37,7 @@ core.addAdminNavigation = (custom_header, callback) => {
 core.regcaptcha = (data, callback) => {
 	if (!app_key || !app_secret) {
 		callback(null, data);
+		return;
 	}
 	let ret = {
 		"label": "验证码",
@@ -61,6 +62,7 @@ core.regcheck = (data, callback) => {
 	//console.log("hook filter:register.check");
 	if (!app_key || !app_secret) {
 		callback(null, data);
+	        return;
 	}
 	//console.log(data);
 	let jaq = new ALY.JAQ({
