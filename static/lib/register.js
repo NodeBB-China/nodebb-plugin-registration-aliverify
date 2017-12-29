@@ -11,7 +11,7 @@ $(document).ready(function () {
         callback: function (data) {
             document.getElementById('csessionid').value = data.csessionid;
             document.getElementById('sig').value = data.sig;
-            document.getElementById('token').value = nc_token;
+            document.getElementById('alitoken').value = nc_token;
             document.getElementById('scene').value = nc_scene;
             $('.nc-container .nc_scale span').css({width:'48px'});
             $('#nc_1_n1z').css({left: ( $('#nc_captcha').width() - 48).toString() + 'px'});
