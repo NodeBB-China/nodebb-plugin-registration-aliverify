@@ -1,6 +1,6 @@
 'use strict'
-const meta = require.parent.require('./src/meta')
-const winston = require.parent.require('winston')
+const meta = require.main.require('./src/meta')
+const winston = require.main.require('winston')
 const path = require('path')
 const core = {}
 const ALY = require('aliyun-sdk')
